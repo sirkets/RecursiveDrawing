@@ -7,8 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Canvas extends Actor
 {
     /**
-     * Write code in this method to make the drawing.
-     * Use values between 0.0 - 1.0
+     * Override and implement your drawing in this method.
      * 
      * The canvas has coordinates (0, 0) in the bottom left corner
      * and (1.0, 1.0) in the top right corner
@@ -17,12 +16,14 @@ public class Canvas extends Actor
      *      |     |
      *      |     |
      * (0,0)|-----|
+     * 
+     * 
      */
     public void draw()
     {
     }
     
-    private GreenfootImage image;  // The image that greenfoot draws on
+    private GreenfootImage image = new GreenfootImage(1,1);  // The image that greenfoot draws on
     private int scale;  // The scale or side-length of the world.  Ensure the world's width = height
     
     public void addedToWorld(World world)
@@ -49,6 +50,7 @@ public class Canvas extends Actor
         int ny1 = (int) ((1 - y1) *scale);
         int ny2 = (int) ((1 - y2) *scale);
         image.drawLine(nx1, ny1, nx2, ny2);
+        this.setImage(image);
     }
 
     /**
@@ -69,5 +71,6 @@ public class Canvas extends Actor
         int width = (int) (xRadius * 2 * scale);
         int height = (int) (yRadius * 2 * scale);
         image.drawOval(nx, ny, width, height);
+        this.setImage(image);
     }
 }
