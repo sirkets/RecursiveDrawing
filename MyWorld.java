@@ -8,10 +8,10 @@ public class MyWorld extends World
      */
     public MyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(100, 100, 1);
-        Canvas canvas = new Canvas();
-        addObject(canvas, getWidth()/2, getHeight()/2);
+        // Ensure width = height
+        super(500, 500, 1);
+        MyCanvas myCanvas = new MyCanvas();
+        addObject(myCanvas, getWidth()/2, getHeight()/2);
   
         
     }
