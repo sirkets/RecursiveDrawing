@@ -65,7 +65,7 @@ public class MyWorld extends World
     {
         removeObject(currentCanvas);
         switch(n) {
-            case 0: currentCanvas = new MyCanvas();
+            case 0: currentCanvas = new Example();
                 break;
             case 1: currentCanvas = new MyH();
                 break;
