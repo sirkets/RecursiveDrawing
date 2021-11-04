@@ -1,19 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyInitial here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Recursive drawing of one of your initials
  */
 public class MyInitial extends Canvas
 {
-    /**
-     * Act - do whatever the MyInitial wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+    public void draw()
     {
-        // Add your action code here.
+        // draw you picure here
     }
+    
+    // Implement your recursive methods here
 }
