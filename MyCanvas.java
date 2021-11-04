@@ -10,6 +10,8 @@ public class MyCanvas extends Canvas
 {
     public void draw()
     {
-
+        line(0, 0, 1, 1);
+        circle(0.5, 0.5, 0.4);
+        oval(0.6, 0.6, 0.3, 0.6);
     }
 }

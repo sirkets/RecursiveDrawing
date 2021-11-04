@@ -21,10 +21,11 @@ public class Canvas extends Actor
      */
     public void draw()
     {
+        // Override this method in a subclass
     }
     
     private GreenfootImage image = new GreenfootImage(1,1);  // The image that greenfoot draws on
-    private int scale;  // The scale or side-length of the world.  Ensure the world's width = height
+    private int scale;  // The scale or side-length of the world.
     
     public void addedToWorld(World world)
     {
