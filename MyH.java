@@ -1,15 +1,13 @@
 import greenfoot.*;
 
 /**
- * Recursive Drawings.
+ * Recursive H Drawing.
  * 
- * @author Mr. Chan
- * @version Oct 2015
  */
-public class RecursiveH extends Canvas
+public class MyH extends Canvas
 {
     // Drawing delay
-    private int delay = 5;
+    private int delay = 1;
     
     /**
      * Overrides the draw method in the superclass.
@@ -17,7 +15,7 @@ public class RecursiveH extends Canvas
      */
     public void draw()
     {
-        drawH(5, 0.5, 0.5, 0.3);
+        drawH(3, 0.5, 0.5, 0.3);
     }
     
     /**
@@ -27,7 +25,6 @@ public class RecursiveH extends Canvas
         if (N == 0) return;
 
         H(x, y, size);
-        Greenfoot.delay(delay);  // delay the drawing
         
         double x0 = x - size / 2;
         double y0 = y - size / 2;
@@ -48,7 +45,10 @@ public class RecursiveH extends Canvas
         double x1 = x0 + size;
         double y1 = y0 + size;
         line(x0, y0, x0, y1); // draws left vertical line of H
+        Greenfoot.delay(delay);
         line(x0, y, x1, y);  // draws the horizonal piece of H
+        Greenfoot.delay(delay);
         line(x1, y0, x1, y1);  // draws right vertical line of H
+        Greenfoot.delay(delay);
     }
 }
