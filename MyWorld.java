@@ -75,7 +75,7 @@ public class MyWorld extends World
     /**
      *  Show the correct canvas based on its letter 
      */
-    private void updateCanvas(String letter)
+    public void updateCanvas(String letter)
     {
         // remove the currently displayed canvas
         removeObject(currentCanvas);  
