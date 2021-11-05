@@ -4,14 +4,13 @@ import greenfoot.*;
  * Recursive H Drawing.
  * 
  */
-public class MyH extends Canvas
+public class B extends Canvas
 {
     // Drawing delay
     private int delay = 1;
     
     /**
-     * Overrides the draw method in the superclass.
-     * Put your drawing command here
+     * TODO: Play with the following values to see how your drawing changes
      */
     public void draw()
     {

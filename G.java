@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Your simple recursive drawing.
- * 
+ * Hanoi drawing
  */
-public class MyDrawing extends Canvas
+public class G extends Canvas
 {
     public void draw()
     {

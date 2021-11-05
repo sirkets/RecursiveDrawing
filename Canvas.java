@@ -26,10 +26,10 @@ public class Canvas extends Actor
         // Override this method in a subclass and
         // implement drawing code in this method
     }
-    
+
     private GreenfootImage image = new GreenfootImage(1,1);  // The image that greenfoot draws on
     private int scale;  // The scale or side-length of the world.
-    
+
     public void addedToWorld(World world)
     {
         // set the scale to the width of the world
@@ -38,7 +38,11 @@ public class Canvas extends Actor
 
         // instantiate an image to draw on
         image = new GreenfootImage(scale, scale);
+
         this.setImage(image);
+
+        // Draw a line at the bottom of the canvas to separate from buttons
+        image.drawLine(0, scale-1, scale, scale-1);
 
         // draw the image
         draw();
@@ -77,7 +81,7 @@ public class Canvas extends Actor
         image.drawOval(nx, ny, width, height);
         this.setImage(image);
     }
-    
+
     /**
      * Draw a rectangle centred on (x, y) with halfWidth and halfHeight
      */
@@ -90,7 +94,7 @@ public class Canvas extends Actor
         image.drawRect(nx, ny, width, height);
         this.setImage(image);
     }
-    
+
     /**
      * Set the drawing color
      */
@@ -98,5 +102,5 @@ public class Canvas extends Actor
     {
         image.setColor(color);
     }
-    
+
 }
