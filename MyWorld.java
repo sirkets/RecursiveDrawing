@@ -28,6 +28,8 @@ public class MyWorld extends World
 
         // Draw and Update the buttons
         updateButtons();
+        
+        addObject(new MyButton(), getWidth()/2, getHeight()/2);
     }
 
     /**
