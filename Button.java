@@ -17,24 +17,22 @@ public class Button extends Actor
         UP, DOWN, HOVER
     }
 
-    public Button(String text)
+    public Button(String text, int width, int height)
     {
-        this.text = text;
-        Label label = new Label(text, 50);
-        
         // Scale the image
-        int xScale = 73;
-        int yScale = 51;
-        up.scale(xScale, yScale);
-        down.scale(xScale, yScale);
-        hover.scale(xScale, yScale);
-        
-        up.drawImage(label.getImage(), xScale/3, 0);
-        down.drawImage(label.getImage(), xScale/3, 0);
-        hover.drawImage(label.getImage(), xScale/3, 0);
+        up.scale(width, height);
+        down.scale(width, height);
+        hover.scale(width, height);
+
+        // Show text on the button
+        this.text = text;
+        Label label = new Label(text, height);
+        up.drawImage(label.getImage(), width/3, 0);
+        down.drawImage(label.getImage(), width/3, 0);
+        hover.drawImage(label.getImage(), width/3, 0);
         setImage(up);
     }
-    
+
     public String getText()
     {
         return text;
@@ -42,7 +40,6 @@ public class Button extends Actor
 
     public void act()
     {
-
         MouseInfo info = Greenfoot.getMouseInfo();
         if(info == null) {
             return;
@@ -59,6 +56,8 @@ public class Button extends Actor
             else if(Greenfoot.mouseClicked(this))
             {
                 state = state.HOVER;
+                MyWorld world = (MyWorld) getWorld();
+                world.updateCanvas(this.text);
             }
             else
             {
@@ -67,13 +66,16 @@ public class Button extends Actor
         }
         else if(info.getActor() != null)
         {
-             state = state.UP;   
+            state = state.UP;   
         }
-       
+
         updateImage();
-        
+
     }
-    
+
+    /**
+     * Update the button image based on its state
+     */
     private void updateImage()
     {
         switch (state)

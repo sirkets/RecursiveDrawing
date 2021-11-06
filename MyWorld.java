@@ -11,6 +11,7 @@ public class MyWorld extends World
     private HashMap<String, Button> buttons = new HashMap<String, Button>();
     private Canvas currentCanvas;  // The current canvas to show
     private int heightOffset = 50;  // the height of the buttons
+    private int fontSize = heightOffset;  // font size of button text
     private int numDrawings = 7;  // How many canvases to display
     
     /**
@@ -27,7 +28,7 @@ public class MyWorld extends World
         addObject(currentCanvas, x, y);
 
         // Draw and Update the buttons
-        updateButtons();
+        drawButtons();
         
     }
 
@@ -35,41 +36,26 @@ public class MyWorld extends World
      * Create and update the labels
      * This method moves labels to the "front" so they can be clicked
      */
-    private void updateButtons()
+    private void drawButtons()
     {
         // label settings
-        int fontSize = 50;
         int x = getWidth()/numDrawings/2;
-        int xOffset = getWidth()/numDrawings;
         int y = getHeight() - fontSize/2;
+        int buttonWidth = getWidth()/numDrawings;
+        int buttonHeight = fontSize;
+        
+        // get the padding on the ends of the buttons
+        int offset = getWidth() - (buttonWidth * numDrawings);
 
         // Create the buttons
         for(int i = 0; i < numDrawings; i++)
         {
             String letter = Character.toString('A' + i);
-            Button button = new Button(letter);
+            Button button = new Button(letter, buttonWidth, buttonHeight);
             buttons.put(letter, button);
-            addObject(buttons.get(letter), x + xOffset * i, y);
+            addObject(buttons.get(letter), x + offset/2 + buttonWidth * i, y);
         }
 
-    }
-
-    /**
-     * Called by greenfoot each cycle of the game loop
-     */
-    public void act()
-    {
-        MouseInfo info = Greenfoot.getMouseInfo();
-        if(info == null || !(info.getActor() instanceof Button))
-            return;
-
-        Button button = (Button) info.getActor();
-        if(Greenfoot.mouseClicked(button))
-        {
-            String letter = button.getText();
-            updateCanvas(letter);
-            //updateButtons();
-        }
     }
 
     /**

@@ -14,7 +14,7 @@ public class B extends Canvas
      */
     public void draw()
     {
-        drawH(3, 0.5, 0.5, 0.3);
+        drawH(2, 0.5, 0.5, 0.3);
     }
     
     /**
