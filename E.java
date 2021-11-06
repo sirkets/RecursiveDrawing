@@ -5,9 +5,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class E extends Canvas
 {
+    /**
+     * TODO: change the values to personalize your tree
+     */
     public void draw()
     {
-        // TODO: change these values to personalize your tree
         drawTree(5, 0.5, 0, 90, 0.5);
     }
 
