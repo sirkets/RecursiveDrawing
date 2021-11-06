@@ -10,7 +10,7 @@ public class E extends Canvas
      */
     public void draw()
     {
-        drawTree(5, 0.5, 0, 90, 0.5);
+        drawTree(3, 0.5, 0, 90, 0.5);
     }
 
     /**
