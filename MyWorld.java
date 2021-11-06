@@ -19,7 +19,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         super(500, 550, 1);
-
+        
         // Create a blank canvas to show the line that separates canvas from buttons
         currentCanvas = new Canvas();
         int x = getWidth()/2;
@@ -29,7 +29,6 @@ public class MyWorld extends World
         // Draw and Update the buttons
         updateButtons();
         
-        addObject(new MyButton(), getWidth()/2, getHeight()/2);
     }
 
     /**
@@ -48,8 +47,7 @@ public class MyWorld extends World
         for(int i = 0; i < numDrawings; i++)
         {
             String letter = Character.toString('A' + i);
-            Button button = new Button(letter, fontSize, x, y, 50, 50);
-            button.setFillColor(Color.ORANGE);
+            Button button = new Button(letter);
             buttons.put(letter, button);
             addObject(buttons.get(letter), x + xOffset * i, y);
         }
@@ -68,9 +66,9 @@ public class MyWorld extends World
         Button button = (Button) info.getActor();
         if(Greenfoot.mouseClicked(button))
         {
-            String letter = button.getValue();
+            String letter = button.getText();
             updateCanvas(letter);
-            updateButtons();
+            //updateButtons();
         }
     }
 
