@@ -5,10 +5,7 @@ import greenfoot.*;
  * 
  */
 public class B extends Canvas
-{
-    // Change the value of delay to speed up or slow the drawing
-    private int delay = 1;
-    
+{    
     /**
      * TODO: Play with the following values to see how your drawing changes
      */

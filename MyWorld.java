@@ -13,7 +13,7 @@ public class MyWorld extends World
     private Canvas currentCanvas;  // The current canvas to show
     private int heightOffset = 50;  // the height of the buttons
     private int fontSize = heightOffset;  // font size of button text
-    private int numDrawings = 7;  // How many canvases to display
+    private int numCanvases = 7;  // How many canvases to display
     
     /**
      * Constructor for objects of class MyWorld.
@@ -32,7 +32,7 @@ public class MyWorld extends World
         createButtons();
         
     }
-
+  
     /**
      * Create and update the labels
      * This method moves labels to the "front" so they can be clicked
@@ -40,23 +40,22 @@ public class MyWorld extends World
     private void createButtons()
     {
         // label settings
-        int x = getWidth()/numDrawings/2;
+        int x = getWidth()/numCanvases/2;
         int y = getHeight() - fontSize/2;
-        int buttonWidth = getWidth()/numDrawings;
+        int buttonWidth = getWidth()/numCanvases;
         int buttonHeight = fontSize;
         
         // get the padding on the ends of the buttons
-        int offset = getWidth() - (buttonWidth * numDrawings);
+        int offset = getWidth() - (buttonWidth * numCanvases);
 
         // Create the buttons
-        for(int i = 0; i < numDrawings; i++)
+        for(int i = 0; i < numCanvases; i++)
         {
             String letter = Character.toString('A' + i);
             Button button = new Button(letter, buttonWidth, buttonHeight);
             buttons.put(letter, button);
             addObject(buttons.get(letter), x + offset/2 + buttonWidth * i, y);
         }
-
     }
 
     /**
