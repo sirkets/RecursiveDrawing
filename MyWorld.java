@@ -4,7 +4,7 @@ import java.util.HashMap;
 /**
  * The main world
  * 
- * Don't make any changes in this class
+ * Do NOT make any changes in this class
  */
 public class MyWorld extends World
 {
