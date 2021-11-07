@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class MyWorld extends World
 {
     private HashMap<String, Button> buttons = new HashMap<String, Button>();
+    private HashMap<String, Canvas> canvases = new HashMap<String, Canvas>();
     private Canvas currentCanvas;  // The current canvas to show
     private int heightOffset = 50;  // the height of the buttons
     private int fontSize = heightOffset;  // font size of button text
@@ -27,8 +28,8 @@ public class MyWorld extends World
         int y = (getHeight() - 50)/2;
         addObject(currentCanvas, x, y);
 
-        // Draw and Update the buttons
-        drawButtons();
+        // Create the buttons
+        createButtons();
         
     }
 
@@ -36,7 +37,7 @@ public class MyWorld extends World
      * Create and update the labels
      * This method moves labels to the "front" so they can be clicked
      */
-    private void drawButtons()
+    private void createButtons()
     {
         // label settings
         int x = getWidth()/numDrawings/2;
@@ -66,7 +67,7 @@ public class MyWorld extends World
         // remove the currently displayed canvas
         removeObject(currentCanvas);  
         char c = letter.charAt(0);
-        // load the currect canvas
+        // load the correct canvas
         switch(c) {
             case 'A': currentCanvas = new A();
                 break;

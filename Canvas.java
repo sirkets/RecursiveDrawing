@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Canvas extends Actor
 {
+    // The drawing delay
+    private int delay = 1;
+    
     /**
      * Override and implement your drawing in this method.
      * 
@@ -59,6 +62,7 @@ public class Canvas extends Actor
         int ny2 = (int) ((1 - y2) * scale);
         image.drawLine(nx1, ny1, nx2, ny2);
         this.setImage(image);
+        Greenfoot.delay(delay);
     }
 
     /**
@@ -80,6 +84,7 @@ public class Canvas extends Actor
         int height = (int) (yRadius * 2 * scale);
         image.drawOval(nx, ny, width, height);
         this.setImage(image);
+        Greenfoot.delay(delay);
     }
 
     /**
@@ -93,6 +98,7 @@ public class Canvas extends Actor
         int height = (int) (halfHeight * 2 * scale);
         image.drawRect(nx, ny, width, height);
         this.setImage(image);
+        Greenfoot.delay(delay);
     }
 
     /**
