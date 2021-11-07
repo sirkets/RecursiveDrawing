@@ -8,20 +8,34 @@ import java.util.HashMap;
  */
 public class MyWorld extends World
 {
+    // Names of exercises
+    private HashMap<String, String> drawingNamesMap = new HashMap<String, String>(){{
+                put("A", "Drawing Practice");
+                put("B", "Recursive H");
+                put("C", "My Initial");
+                put("D", "Simple Drawing");
+                put("E", "Recursive Tree");
+                put("F", "My Masterpiece");
+                put("G", "Tower of Hanoi");
+            }};
+
     private HashMap<String, Button> buttons = new HashMap<String, Button>();
     private HashMap<String, Canvas> canvases = new HashMap<String, Canvas>();
     private Canvas currentCanvas;  // The current canvas to show
     private int heightOffset = 50;  // the height of the buttons
     private int fontSize = heightOffset;  // font size of button text
     private int numCanvases = 7;  // How many canvases to display
-    
+
+    private int hoverTextFontSize = 20;
+    private Label hoverTextLabel;
+
     /**
      * Constructor for objects of class MyWorld.
      */
     public MyWorld()
     {    
         super(500, 550, 1);
-        
+
         // Create a blank canvas to show the line that separates canvas from buttons
         currentCanvas = new Canvas();
         int x = getWidth()/2;
@@ -30,9 +44,9 @@ public class MyWorld extends World
 
         // Create the buttons
         createButtons();
-        
+        hoverTextLabel = new Label("", hoverTextFontSize);
     }
-  
+
     /**
      * Create and update the labels
      * This method moves labels to the "front" so they can be clicked
@@ -44,7 +58,7 @@ public class MyWorld extends World
         int y = getHeight() - fontSize/2;
         int buttonWidth = getWidth()/numCanvases;
         int buttonHeight = fontSize;
-        
+
         // get the padding on the ends of the buttons
         int offset = getWidth() - (buttonWidth * numCanvases);
 
@@ -56,6 +70,35 @@ public class MyWorld extends World
             buttons.put(letter, button);
             addObject(buttons.get(letter), x + offset/2 + buttonWidth * i, y);
         }
+    }
+
+    /**
+     * Display the name of the exercise from the given letter
+     */
+    public void displayHoverText(String letter)
+    {
+        int x = getWidth()/2;
+        int y = hoverTextFontSize;
+        String displayText = drawingNamesMap.get(letter);
+        hoverTextLabel.setValue(displayText);        
+        hoverTextLabel.setFillColor(Color.GRAY);
+        addObject(hoverTextLabel, x, y);
+    }
+
+    /**
+     * Cancel the hover Text
+     */
+    public void cancelHoverText()
+    {
+        hoverTextLabel.setValue(""); 
+    }
+    
+    /**
+     * Clear the canvas
+     */
+    public void clearCanvas()
+    {
+        currentCanvas = new Canvas();
     }
 
     /**

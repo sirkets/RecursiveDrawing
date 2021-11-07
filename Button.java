@@ -10,14 +10,14 @@ public class Button extends Actor
     GreenfootImage hover = new GreenfootImage("button_hover.png");
 
     private State state = State.UP;
-    private String text;
+    private String buttonText;
 
     private enum State
     {
-        UP, DOWN, HOVER
+        UP, DOWN, HOVER, NONE
     }
 
-    public Button(String text, int width, int height)
+    public Button(String buttonText, int width, int height)
     {
         // Scale the image
         up.scale(width, height);
@@ -25,17 +25,12 @@ public class Button extends Actor
         hover.scale(width, height);
 
         // Show text on the button
-        this.text = text;
-        Label label = new Label(text, height);
+        this.buttonText = buttonText;
+        Label label = new Label(buttonText, height);
         up.drawImage(label.getImage(), width/3, 0);
         down.drawImage(label.getImage(), width/3, 0);
         hover.drawImage(label.getImage(), width/3, 0);
         setImage(up);
-    }
-
-    public String getText()
-    {
-        return text;
     }
 
     public void act()
@@ -56,10 +51,10 @@ public class Button extends Actor
             else if(Greenfoot.mouseClicked(this))
             {
                 state = state.HOVER;
-                
+
                 // Update the screen
                 MyWorld world = (MyWorld) getWorld();
-                world.updateCanvas(this.text);
+                world.updateCanvas(this.buttonText);
             }
             else
             {
@@ -80,6 +75,7 @@ public class Button extends Actor
      */
     private void updateImage()
     {
+        MyWorld world = (MyWorld) getWorld();
         switch (state)
         {
             case UP:
@@ -90,6 +86,7 @@ public class Button extends Actor
                 break;
             case HOVER: 
                 setImage(hover);
+                world.displayHoverText(buttonText);
                 break;
         }
 
