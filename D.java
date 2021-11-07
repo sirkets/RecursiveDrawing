@@ -11,7 +11,7 @@ public class D extends Canvas
      */
     public void draw()
     {
-        // draw you picure here
+
     }
     
     // Implement recursive methods here

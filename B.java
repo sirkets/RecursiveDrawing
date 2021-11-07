@@ -5,10 +5,7 @@ import greenfoot.*;
  * 
  */
 public class B extends Canvas
-{
-    // Change the value of delay to speed up or slow the drawing
-    private int delay = 1;
-    
+{    
     /**
      * TODO: Play with the following values to see how your drawing changes
      */
@@ -44,10 +41,7 @@ public class B extends Canvas
         double x1 = x0 + size;
         double y1 = y0 + size;
         line(x0, y0, x0, y1); // draws left vertical line of H
-        Greenfoot.delay(delay);
         line(x0, y, x1, y);  // draws the horizonal piece of H
-        Greenfoot.delay(delay);
         line(x1, y0, x1, y1);  // draws right vertical line of H
-        Greenfoot.delay(delay);
     }
 }

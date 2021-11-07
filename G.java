@@ -10,7 +10,7 @@ public class G extends Canvas
 {
     public void draw()
     {
-        // draw you picure here
+
     }
 
 }

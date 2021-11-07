@@ -56,6 +56,8 @@ public class Button extends Actor
             else if(Greenfoot.mouseClicked(this))
             {
                 state = state.HOVER;
+                
+                // Update the screen
                 MyWorld world = (MyWorld) getWorld();
                 world.updateCanvas(this.text);
             }

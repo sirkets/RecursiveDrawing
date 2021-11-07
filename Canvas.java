@@ -1,13 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * This class contains methods to make simple drawings
+ * This class contains methods to make simple drawings.
  * Extend this class to make your own canvas for drawing.
  * Override the 'draw()' method in your subclass.
  * Enter your drawing code in the 'draw()' method of the subclass
  */
 public class Canvas extends Actor
 {
+    // The drawing delay
+    private int delay = 1;
+    
     /**
      * Override and implement your drawing in this method.
      * 
@@ -23,10 +26,8 @@ public class Canvas extends Actor
      */
     public void draw()
     {
-        // Override this method in a subclass and
-        // implement drawing code in this method
     }
-
+    
     private GreenfootImage image = new GreenfootImage(1,1);  // The image that greenfoot draws on
     private int scale;  // The scale or side-length of the world.
 
@@ -47,7 +48,7 @@ public class Canvas extends Actor
         // draw the image
         draw();
     }
-
+    
     /**
      * Draw a line between coordinates (x1, y1) and (x2, y2)
      */
@@ -59,6 +60,7 @@ public class Canvas extends Actor
         int ny2 = (int) ((1 - y2) * scale);
         image.drawLine(nx1, ny1, nx2, ny2);
         this.setImage(image);
+        Greenfoot.delay(delay);
     }
 
     /**
@@ -80,6 +82,7 @@ public class Canvas extends Actor
         int height = (int) (yRadius * 2 * scale);
         image.drawOval(nx, ny, width, height);
         this.setImage(image);
+        Greenfoot.delay(delay);
     }
 
     /**
@@ -93,6 +96,7 @@ public class Canvas extends Actor
         int height = (int) (halfHeight * 2 * scale);
         image.drawRect(nx, ny, width, height);
         this.setImage(image);
+        Greenfoot.delay(delay);
     }
 
     /**
