@@ -19,8 +19,6 @@ public class MyWorld extends World
                 put("G", "Tower of Hanoi");
             }};
 
-    private HashMap<String, Button> buttons = new HashMap<String, Button>();
-    private HashMap<String, Canvas> canvases = new HashMap<String, Canvas>();
     private Canvas currentCanvas;  // The current canvas to show
     private int heightOffset = 50;  // the height of the buttons
     private int fontSize = heightOffset;  // font size of button text
@@ -67,8 +65,7 @@ public class MyWorld extends World
         {
             String letter = Character.toString('A' + i);
             Button button = new Button(letter, buttonWidth, buttonHeight);
-            buttons.put(letter, button);
-            addObject(buttons.get(letter), x + offset/2 + buttonWidth * i, y);
+            addObject(button, x + offset/2 + buttonWidth * i, y);
         }
     }
 
@@ -91,14 +88,6 @@ public class MyWorld extends World
     public void cancelHoverText()
     {
         hoverTextLabel.setValue(""); 
-    }
-    
-    /**
-     * Clear the canvas
-     */
-    public void clearCanvas()
-    {
-        currentCanvas = new Canvas();
     }
 
     /**
