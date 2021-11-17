@@ -1,1 +1,1 @@
-This project is for practicing how to create recursive drawings.
+The purpose of this assignment is to learn and practice creating recursive drawings.
