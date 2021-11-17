@@ -3,8 +3,7 @@ import java.util.HashMap;
 
 /**
  * The main world
- * 
- * Do NOT make any changes in this class
+ * This is the main interface for the buttons and the Canvas
  */
 public class MyWorld extends World
 {
@@ -96,9 +95,11 @@ public class MyWorld extends World
     public void updateCanvas(String letter)
     {
         // remove the currently displayed canvas
-        removeObject(currentCanvas);  
+        removeObject(currentCanvas);
+        currentCanvas = null;
+        
+        // load the correct canvas subclass
         char c = letter.charAt(0);
-        // load the correct canvas
         switch(c) {
             case 'A': currentCanvas = new A();
                 break;
@@ -121,5 +122,8 @@ public class MyWorld extends World
         int x = getWidth()/2;
         int y = (getHeight() - heightOffset)/2;
         addObject(currentCanvas, x, y);
+        
+        // Execute the run method of the subclass of Canvas
+        currentCanvas.run();
     }
 }

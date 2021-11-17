@@ -12,7 +12,7 @@ public class A extends Canvas
      * Practice drawing different lines and shapes.
      * Refer to the drawing API in the superclass
      */
-    public void draw()
+    public void run()
     {
         line(0, 0, 1, 1);
         circle(0.5, 0.5, 0.4);

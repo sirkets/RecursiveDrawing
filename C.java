@@ -9,7 +9,7 @@ public class C extends Canvas
      * TODO:  Create a recursive drawing of one of your initials.
      * Refer to the RecursiveH drawing for help.
      */
-    public void draw()
+    public void run()
     {
         
     }

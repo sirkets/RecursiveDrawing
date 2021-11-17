@@ -8,7 +8,7 @@ public class E extends Canvas
     /**
      * TODO: change the values to personalize your tree
      */
-    public void draw()
+    public void run()
     {
         drawTree(3, 0.5, 0, 90, 0.5);
     }

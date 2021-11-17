@@ -9,7 +9,7 @@ public class D extends Canvas
     /**
      * TODO: Create your simple drawing
      */
-    public void draw()
+    public void run()
     {
 
     }
