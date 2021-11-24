@@ -6,29 +6,30 @@ import java.util.Iterator;
 public class Stack<E> implements Iterable<E>
 {
     private Node first = null;
-    
+
     private class Node {
         private E item;
         private Node next;
     } 
-    
+
     public boolean isEmpty() {
         return first == null;
     }
-    
+
     public void push(E item) {
         Node second = first;
         first = new Node();
         first.item = item;
         first.next = second;
     }
-    
+
     public E pop() {
         E item = first.item;
         first = first.next;
         return item;
     }
-    
+
+
     // To make this data structure work with for-each loops
     public Iterator<E> iterator() {
         return new MyIterator();

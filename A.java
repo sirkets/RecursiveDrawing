@@ -14,13 +14,20 @@ public class A extends Canvas
      */
     public void run()
     {
-        line(0, 0, 1, 1);
-        circle(0.5, 0.5, 0.4);
-      
-        setColor(Color.GREEN);
-        oval(0.6, 0.6, 0.3, 0.2);
-        
-        setColor(Color.RED);
-        rect(0.7, 0.4, 0.2, 0.3);
+        line(0, 0, 0.5, 0.5);
     }
+    
+    private void draw(int N, double x, double y, double size)
+    {
+        if(N == 0) {
+          return;
+        }
+        
+        circle(x, y, size);
+        double x0 = x-size/2;
+        double x1 = x+size/2;
+        draw(N-1, x0, y, size/2);
+        draw(N-1, x1, y, size/2);
+    }
+
 }
